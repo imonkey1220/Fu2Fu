@@ -17,9 +17,7 @@ public class BossActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_boss);
-
     }
-
     public void onClickLogout(View v) {
         AuthUI.getInstance().signOut(this)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -29,30 +27,11 @@ public class BossActivity extends AppCompatActivity {
                         finish();
                     }
                 });
-
     }
-
-    public void onClickAddDevicePLC(View v) {
-        Intent intent = new Intent(BossActivity.this, AddThingsDeviceActivity.class);
-        intent.putExtra("deviceType","PLC監控機");
-        startActivity(intent);
-        finish();
-
-    }
-
-    public void onClickAddDeviceRPI3IO(View v) {
-        Intent intent = new Intent(BossActivity.this, AddThingsDeviceActivity.class);
-        intent.putExtra("deviceType","GPIO智慧機");
-        startActivity(intent);
-        finish();
-
-    }
-
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
         finish();
     }
-
 }
