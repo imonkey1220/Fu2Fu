@@ -57,7 +57,7 @@ public class QMSActivity extends AppCompatActivity {
                 if (user!=null){
                     memberEmail=user.getEmail();
 
-                    mQMSClient= FirebaseDatabase.getInstance().getReference("/LOG/QMS/"+deviceId+"/CLIENT");
+                    mQMSClient= FirebaseDatabase.getInstance().getReference("/DEVICE/"+deviceId+"/QMS/CLIENT/");
                     mQMSClient.child(memberEmail.replace(".","_")).limitToLast(1).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot snapshot) {
@@ -72,7 +72,7 @@ public class QMSActivity extends AppCompatActivity {
 
                 lastServerNo=(TextView) findViewById(R.id.textViewLastServerNo);
 
-                mQMSServer= FirebaseDatabase.getInstance().getReference("/LOG/QMS/"+deviceId+"/SERVER");
+                mQMSServer= FirebaseDatabase.getInstance().getReference("/DEVICE/"+deviceId+"/QMS/SERVER/");
                 mQMSServer.limitToLast(1).addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -97,7 +97,7 @@ public class QMSActivity extends AppCompatActivity {
             }
         };
 
-        mQMSServerLive= FirebaseDatabase.getInstance().getReference("/LOG/QMS/"+deviceId+"/connection");
+        mQMSServerLive= FirebaseDatabase.getInstance().getReference("/DEVICE/"+deviceId+"/connection");
         mQMSServerLive.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {

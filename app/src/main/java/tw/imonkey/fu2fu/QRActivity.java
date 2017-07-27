@@ -157,7 +157,7 @@ public class QRActivity extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {}
         });
 
-        Intent intent = new Intent(this,DeviceRPI3IOActivity.class);
+        Intent intent = new Intent(this,QMSActivity.class);
         intent.putExtra("deviceId", deviceId);
         startActivity(intent);
         finish();
