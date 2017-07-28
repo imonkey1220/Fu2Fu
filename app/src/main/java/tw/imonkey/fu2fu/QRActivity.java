@@ -149,8 +149,8 @@ public class QRActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 if (snapshot.exists()){
-                    Shop shop=snapshot.getValue(Shop.class);
-                    mAddClub.child(shop.getTopics_id()).setValue(shop);
+                    Device device=snapshot.getValue(Device.class);
+                    mAddClub.child(device.getTopics_id()).setValue(device);
                 }
             }
             @Override

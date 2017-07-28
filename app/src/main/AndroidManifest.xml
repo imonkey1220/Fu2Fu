@@ -51,7 +51,7 @@
             </intent-filter>
         </activity>
         <activity android:name="tw.imonkey.fu2fu.AddUserDeviceActivity" />
-        <activity android:name="tw.imonkey.fu2fu.BossActivity" />
+        <activity android:name="tw.imonkey.fu2fu.ClientActivity" />
         <activity android:name="tw.imonkey.fu2fu.QRActivity" />
         <activity android:name="tw.imonkey.fu2fu.QMSActivity" />
 

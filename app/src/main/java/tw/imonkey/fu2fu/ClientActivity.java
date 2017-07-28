@@ -10,8 +10,8 @@ import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
-public class BossActivity extends AppCompatActivity {
-    public static final String service="Boss"; //主機 deviceType
+public class ClientActivity extends AppCompatActivity {
+    public static final String service="CLIENT"; //主機 deviceType
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,7 @@ public class BossActivity extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     public void onComplete(@NonNull Task<Void> task) {
                         // user is now signed out
-                        startActivity(new Intent(BossActivity.this, LoginActivity.class));
+                        startActivity(new Intent(ClientActivity.this, LoginActivity.class));
                         finish();
                     }
                 });

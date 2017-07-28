@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
         PackageInfo info;
         try{
-            info = getPackageManager().getPackageInfo("tw.imonkey.fu2go", PackageManager.GET_SIGNATURES);
+            info = getPackageManager().getPackageInfo("tw.imonkey.fu2fu", PackageManager.GET_SIGNATURES);
             for(Signature signature : info.signatures)
             {      MessageDigest md;
                 md = MessageDigest.getInstance("SHA");
@@ -176,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
     private void getDevices() {
         RecyclerView RV4 = (RecyclerView) findViewById(R.id.RV4);
         RV4.setLayoutManager(new LinearLayoutManager(this));
-        Query refDevice = FirebaseDatabase.getInstance().getReference("DEVICE").orderByChild("/users/"+memberEmail.replace(".", "_")).equalTo(memberEmail);
+        Query refDevice = FirebaseDatabase.getInstance().getReference("/CLUB/" + memberEmail.replace(".", "_"));
         mDeviceAdapter = new FirebaseRecyclerAdapter<Device, MessageHolder>(
                 Device.class,
                 R.layout.device_layout,
@@ -220,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
                         String deviceType = snapshot.child("deviceType").getValue().toString();
                         switch (deviceType) {
                             case "主機": {
-                                Intent intent = new Intent(MainActivity.this, BossActivity.class);
+                                Intent intent = new Intent(MainActivity.this, ClientActivity.class);
                                 intent.putExtra("deviceId", deviceId);
                                 intent.putExtra("memberEmail", memberEmail);
                                 if (snapshot.child("masterEmail").getValue().toString().equals(memberEmail)) {
@@ -232,8 +232,8 @@ public class MainActivity extends AppCompatActivity {
                                 break;
                             }
 
-                            case "GPIO智慧機": {
-                                Intent intent = new Intent(MainActivity.this, DeviceRPI3IOActivity.class);
+                            case "QMS智慧機": {
+                                Intent intent = new Intent(MainActivity.this, QMSActivity.class);
                                 intent.putExtra("deviceId", deviceId);
                                 intent.putExtra("memberEmail", memberEmail);
                                 if (snapshot.child("masterEmail").getValue().toString().equals(memberEmail)) {

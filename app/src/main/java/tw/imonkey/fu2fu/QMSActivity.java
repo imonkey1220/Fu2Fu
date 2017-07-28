@@ -56,7 +56,6 @@ public class QMSActivity extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user!=null){
                     memberEmail=user.getEmail();
-
                     mQMSClient= FirebaseDatabase.getInstance().getReference("/DEVICE/"+deviceId+"/QMS/CLIENT/");
                     mQMSClient.child(memberEmail.replace(".","_")).limitToLast(1).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
